@@ -6,7 +6,7 @@ class CreateDisks < ActiveRecord::Migration[6.1]
       t.string      :title,         null: false
       t.string      :introduction
       t.string      :file,          null: false
-      t.boolean     :is_active,     null: false
+      t.boolean     :on_public,     null: false
       
 
       t.timestamps
