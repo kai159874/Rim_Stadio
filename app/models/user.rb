@@ -9,7 +9,8 @@ class User < ApplicationRecord
   def to_param
     public_uid
   end
-
+  
+  validates :public_uid, presence: true, format: { with: /\A[a-z0-9]+\z/i }, length: { maximum: 16 }, on: :update
   validates :is_active, inclusion: {in: [true, false]}
   validates :name, presence: true, length: { in: 1..10 }
 

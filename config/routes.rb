@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root to: "public/homes#top"
+
   devise_for :admin,skip: [:passwords], controllers: {
     sessions: "admin/sessions"
   }
@@ -6,6 +9,13 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+
+  namespace :public do
+    get 'disks/new'
+    get 'disks/show'
+    get 'disks/index'
+    get 'disks/edit'
+  end
 
 
 
