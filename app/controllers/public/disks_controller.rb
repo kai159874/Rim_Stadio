@@ -6,7 +6,12 @@ class Public::DisksController < ApplicationController
   end
   
   def create
-    @disk = Disk.new(disk_params)
+    @disk = current_user.disks.new(disk_params)
+    if @disk.save
+      redirect_to disk_path(@disk), notice: "ディスクを作りました！"
+    else
+      render :new
+    end
   end
 
   def show
