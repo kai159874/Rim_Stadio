@@ -8,7 +8,7 @@ class Public::DisksController < ApplicationController
   def create
     @disk = current_user.disks.new(disk_params)
     if @disk.save
-      redirect_to disk_path(@disk), notice: "ディスクを作りました！"
+      redirect_to disk_path(@disk), notice: "ディスク投稿完了"
     else
       render :new
     end
