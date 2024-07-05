@@ -1,0 +1,10 @@
+<article class="container text-center">
+  <h1>マイページ</h1>
+  <div><%= image_tag @user.get_profile_image, size: "100x100", class: "icon" %></div>
+  <div><%= @user.name %></div>
+  <div><%= @user.public_uid %></div>
+  <div><%= @user.introduction %></div>
+
+  <%= link_to "プロフィール編集", mypage_edit_path(@user), class: "btn btn-info" %>
+
+</article>

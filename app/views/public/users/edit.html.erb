@@ -1,0 +1,17 @@
+<article class="container">
+  <div class="form text-center">
+    <%= form_with model: @user, url: mypage_path do |f| %>
+      <div>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form_control" %>
+      </div>
+      <div>
+        <%= f.label :introduction %>
+        <%= f.text_area :introduction, class: "form_control" %>
+      </div>
+
+
+      <%= f.submit "編集" %>
+    <% end %>
+  </div>
+</article>
