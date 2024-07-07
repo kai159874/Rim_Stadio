@@ -16,6 +16,12 @@ class Public::UsersController < ApplicationController
       render :edit
     end
   end
+  
+  def unsubscribe
+  end
+  
+  def withdrow
+  end
 
   private
 

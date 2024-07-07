@@ -1,2 +1,29 @@
-<h1>Public::Disks#new</h1>
-<p>Find me in app/views/public/disks/new.html.erb</p>
+<article class="container">
+  <div class="form text-center">
+    <%= render "layouts/errors", obj: @disk %>
+    <%= form_with model: @disk do |f| %>
+      <div>
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form_control" %>
+      </div>
+      <div>
+        <%= f.label :introduction %>
+        <%= f.text_area :introduction, class: "form_control" %>
+      </div>
+      <div>
+        <%= f.label :file %>
+        <%= f.file_field :file, accept:'audio/mp3' %>
+      </div>
+      <div>
+        <%= f.label :on_public %>
+        <%= f.radio_button :on_public, true %>
+        <%= f.label :on_public, "公開", value: true %>
+        <%= f.radio_button :on_public, false %>
+        <%= f.label :on_public, "非公開", value: false %>
+      </div>
+
+
+      <%= f.submit "投稿" %>
+    <% end %>
+  </div>
+</article>

@@ -1,5 +1,6 @@
 <article class="container">
   <div class="form text-center">
+    <%= render "layouts/errors", obj: @user %>
     <%= form_with model: @user, url: mypage_path do |f| %>
       <div>
         <%= f.label :name %>
