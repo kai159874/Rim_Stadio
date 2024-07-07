@@ -15,13 +15,17 @@
         <%= f.file_field :file, accept:'audio/mp3' %>
       </div>
       <div>
-        <%= f.label :on_public %>
-        <%= f.radio_button :on_public, true %>
-        <%= f.label :on_public, "公開", value: true %>
-        <%= f.radio_button :on_public, false %>
-        <%= f.label :on_public, "非公開", value: false %>
+        <%= f.label :jacket_image %>
+        <%= f.file_field :jacket_image %>
       </div>
-
+      <div>
+        <%= f.label :on_public, "ステータス" %>
+        <%= f.radio_button :on_public, :true %>
+        <%= f.label :on_public, "公開", {value: :true, style: "display: inline-block;"} %>
+        <%= f.radio_button :on_public, :false %>
+        <%= f.label :on_public, "非公開", {value: :false, style: "display: inline-block;"} %>
+      </div>
+<!--booleanの登録方法、なぞ-->
 
       <%= f.submit "投稿" %>
     <% end %>
