@@ -7,11 +7,18 @@ class Public::DisksController < ApplicationController
 
   def create
     @disk = current_user.disks.new(disk_params)
-    if @disk.save
-      redirect_to disk_path(@disk), notice: "ディスク投稿完了"
-    else
-      render :new
-    end
+    accepted_format = [".mp3"]
+    # if !accepted_format.include? File.extname(@disk.file)
+      if @disk.save
+        redirect_to disk_path(@disk), notice: "ディスク投稿完了"
+      else
+        render :new, alert: "保存に失敗しました。"
+      end
+    # else
+    #   render :new, alert: "拡張子はmp3のみとなります。"
+    # end
+    # フォーマットチェックのやり方わからない
+    
   end
 
   def show
@@ -47,7 +54,14 @@ class Public::DisksController < ApplicationController
   end
 
   def disk_params
-    params.require(:disk).permit(:title, :introduction, :jacket_image, :file)
+    params.require(:disk).permit(:title, :introduction, :jacket_image, :file, :on_public)
+  end
+
+  def format_check
+    accepted_format = [".mp3"]
+    if !accepted_format.include? File.extname(@disk.file)
+      render :new, alert: "mp3以外の拡張子は対応していません。"
+    end
   end
 
 end

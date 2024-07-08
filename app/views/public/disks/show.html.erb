@@ -1,2 +1,9 @@
-<h1>Public::Disks#show</h1>
-<p>Find me in app/views/public/disks/show.html.erb</p>
+<div>
+  <div><%= @disk.title %></div>
+  <div><%= @disk.introduction %></div>
+  <div>
+    <audio src= "<%= "#{@disk.file}" %>" controls="">
+      <a src="<%= "#{@disk.file}" %>">DL</a>
+    </audio>
+  </div>
+</div>

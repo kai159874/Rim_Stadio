@@ -1,7 +1,7 @@
 <article class="container">
   <div class="form text-center">
     <%= render "layouts/errors", obj: @disk %>
-    <%= form_with model: @disk do |f| %>
+    <%= form_with model: @disk  do |f| %>
       <div>
         <%= f.label :title %>
         <%= f.text_field :title, class: "form_control" %>
@@ -12,20 +12,21 @@
       </div>
       <div>
         <%= f.label :file %>
-        <%= f.file_field :file, accept:'audio/mp3' %>
+        <%= f.file_field :file, accept: 'audio/mp3' %>
       </div>
       <div>
         <%= f.label :jacket_image %>
-        <%= f.file_field :jacket_image %>
+        <%= f.file_field :jacket_image, accept: "image/*" %>
       </div>
       <div>
         <%= f.label :on_public, "ステータス" %>
-        <%= f.radio_button :on_public, :true %>
-        <%= f.label :on_public, "公開", {value: :true, style: "display: inline-block;"} %>
-        <%= f.radio_button :on_public, :false %>
-        <%= f.label :on_public, "非公開", {value: :false, style: "display: inline-block;"} %>
+        <div>
+          <%= f.radio_button :on_public, :true %>
+          <%= f.label :on_public, "公開", {value: :true, style: "display: inline-block;"} %>
+          <%= f.radio_button :on_public, :false %>
+          <%= f.label :on_public, "非公開", {value: :false, style: "display: inline-block;"} %>
+        </div>
       </div>
-<!--booleanの登録方法、なぞ-->
 
       <%= f.submit "投稿" %>
     <% end %>
