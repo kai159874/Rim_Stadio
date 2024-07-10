@@ -62,3 +62,6 @@ gem 'kaminari','~> 1.2.1'
 gem 'dotenv-rails'
 
 gem 'public_uid'
+
+gem 'carrierwave'
+gem 'audiojs-rails'

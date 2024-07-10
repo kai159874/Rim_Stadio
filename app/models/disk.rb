@@ -7,6 +7,8 @@ class Disk < ApplicationRecord
     validates :title,               length: { in: 1..50 }
     validates :file
   end
+
+  mount_uploader :file, AudioFileUploader
   validates :on_public,           inclusion: {in: [true, false]}
 
   has_one_attached :jacket_image
