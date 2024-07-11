@@ -1,2 +1,30 @@
-<h1>Public::Disks#edit</h1>
-<p>Find me in app/views/public/disks/edit.html.erb</p>
+<article class="container">
+  <div class="form text-center">
+    <%= render "layouts/errors", obj: @disk %>
+    <%= form_with model: @disk  do |f| %>
+      <div>
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form_control" %>
+      </div>
+      <div>
+        <%= f.label :introduction %>
+        <%= f.text_area :introduction, class: "form_control" %>
+      </div>
+      <div>
+        <%= f.label :jacket_image %>
+        <%= f.file_field :jacket_image, accept: "image/*" %>
+      </div>
+      <div>
+        <%= f.label :on_public, "ステータス" %>
+        <div>
+          <%= f.radio_button :on_public, :true %>
+          <%= f.label :on_public, "公開", {value: :true, style: "display: inline-block;"} %>
+          <%= f.radio_button :on_public, :false %>
+          <%= f.label :on_public, "非公開", {value: :false, style: "display: inline-block;"} %>
+        </div>
+      </div>
+
+      <%= f.submit "編集" %>
+    <% end %>
+  </div>
+</article>
