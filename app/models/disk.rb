@@ -15,4 +15,12 @@ class Disk < ApplicationRecord
 
   validates :introduction, length: { maximum: 50 }
 
+  def get_jacket_image
+    if jacket_image.attached?
+      jacket_image.variant( resize: "160x160" ).processed
+    else
+      jacket_image = 'no_image.jpg'
+    end
+  end
+
 end

@@ -24,6 +24,11 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li>
+                <%= link_to new_disk_path ,class: 'nav-link text-light' do %>
+                  <i class="fa-solid fa-circle-plus"></i> New disk
+                <% end %>
+              </li>
+              <li>
                 <%= link_to disks_path ,class: 'nav-link text-light' do %>
                   <i class="fa-solid fa-compact-disc"></i> Disks
                 <% end %>

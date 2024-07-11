@@ -1,4 +1,5 @@
 <div>
+  <td><%= image_tag @disk.get_jacket_image, size: "160x160", class: "show jacket_image" %></td>
   <div><%= @disk.title %></div>
   <div><%= @disk.introduction %></div>
   <div>
@@ -6,4 +7,6 @@
       <a src="<%= "#{@disk.file}" %>">DL</a>
     </audio>
   </div>
+  <td><%= link_to 'Edit', edit_disk_path(@disk) %></td>
+  <td><%= link_to 'Destroy', @disk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </div>
