@@ -1,12 +1,22 @@
-<div>
-  <td><%= image_tag @disk.get_jacket_image, size: "160x160", class: "show jacket_image" %></td>
-  <div><%= @disk.title %></div>
-  <div><%= @disk.introduction %></div>
-  <div>
-    <audio src= "<%= "#{@disk.file}" %>" controls="">
-      <a src="<%= "#{@disk.file}" %>">DL</a>
-    </audio>
+<div class="text-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-2">
+        <%= image_tag @disk.get_jacket_image, class: "show jacket-image" %>
+      </div>
+      <div class="col-4">
+        <div class="show-title"><%= @disk.title %></div>
+        <div class="">
+          <audio src= "<%= "#{@disk.file}" %>" controls="">
+            <a src="<%= "#{@disk.file}" %>">DL</a>
+          </audio>
+        </div>
+      </div>
+    </div>
+    <div><%= @disk.introduction %></div>
   </div>
-  <td><%= link_to 'Edit', edit_disk_path(@disk) %></td>
-  <td><%= link_to 'Destroy', @disk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <div>
+    <div><%= link_to 'Edit', edit_disk_path(@disk) %></div>
+    <div><%= link_to 'Destroy', @disk, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+  </div>
 </div>
